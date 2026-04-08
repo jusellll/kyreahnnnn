@@ -11,10 +11,10 @@
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
     <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('game')">Game</button>
+    <button onclick="showSection('game')">Memories Game</button>
     <button onclick="showSection('music')">Music</button>
     <button onclick="showSection('video')">Video</button>
     <button onclick="showSection('gallery')">Photos</button>
@@ -23,73 +23,157 @@
 
 <!-- HOME -->
 <section id="home" class="section active">
-    <h1>Another Month, Quietly Ours</h1>
-    <p>Out of everything in this world, I keep choosing you.</p>
+    <div class="hero">
+        <h1>Another Month, Quietly Ours</h1>
+        <p>Out of everything in this world, I keep choosing you.</p>
+    </div>
+
+    <div class="home-cards">
+        <div class="card">💭 Every moment with you feels unreal.</div>
+        <div class="card">🌙 You are my calm in every chaos.</div>
+        <div class="card">✨ If I had to choose again… it would still be you.</div>
+    </div>
 </section>
 
-<!-- GAME -->
+<!-- 🎮 GAME KENANGAN -->
 <section id="game" class="section">
-    <h2>Games 🎮</h2>
-
-    <!-- GAME 1 -->
-    <div id="game1"></div>
-
-    <!-- GAME 2 -->
-    <div id="quiz"></div>
-
-    <!-- GAME 3 -->
-    <div id="clickGame"></div>
+    <h2>Our Memories Game 🧩</h2>
+    <p>Match the memories we share💙</p>
+    <div id="memoryGame"></div>
+    <p id="gameText"></p>
 </section>
 
-<!-- MUSIC (SPOTIFY) -->
+<!-- MUSIC -->
 <section id="music" class="section">
     <h2>Our Song 🎧</h2>
-    <iframe style="border-radius:12px"
-    src="https://open.spotify.com/embed/playlist/6CeKJn6nMJhT9M9sFEql3W?utm_source=generator"
-    width="300" height="380" frameborder="0"></iframe>
+    <iframe src="https://open.spotify.com/embed/playlist/6CeKJn6nMJhT9M9sFEql3W?utm_source=generator"
+    width="300" height="380"></iframe>
+    <p>Listen to this song and you might hear what I’ve never quite found the words to say—every note somehow shaped just for you.
+</p>
 </section>
 
-<!-- VIDEO -->
+<!-- 🎬 VIDEO -->
 <section id="video" class="section">
-    <h2>Memories 🎬</h2>
-    <video controls width="300">
-        <source src="kyreahn.mp4">
-    </video>
+    <h2>Our Moments 🎬</h2>
+
+    <div class="video-grid">
+        <div class="video-card">
+            <video controls><source src="kyreahn.mp4"></video>
+            <p>“A moment I wish I could relive forever.”</p>
+        </div>
+
+        <div class="video-card">
+            <video controls><source src="kyreahn1.mp4"></video>
+            <p>“In your smile, I found my home.”</p>
+        </div>
+
+        <div class="video-card">
+            <video controls><source src="kyreahn2.mp4"></video>
+            <p>“Even time pauses when I’m with you.”</p>
+        </div>
+    </div>
 </section>
 
-<!-- GALLERY -->
+<!-- 📸 GALLERY -->
 <section id="gallery" class="section">
-    <h2>Our Photos 📸</h2>
-    <img src="images/kyre1.jpeg">
-    <img src="images/kyre2.jpeg">
-    <img src="images/kyre3.jpeg">
-    <img src="images/kyre4.jpeg">
+    <h2>Our Memories 📸</h2>
+
+    <div class="gallery-grid">
+        <div class="photo">
+            <img src="images/kyre1.jpeg">
+            <p>Our first laughter</p>
+        </div>
+
+        <div class="photo">
+            <img src="images/kyre3.jpeg">
+            <p>A simple day, a perfect memory</p>
+        </div>
+
+        <div class="photo">
+            <img src="images/kyre5.jpeg">
+            <p>Where everything felt right</p>
+        </div>
+
+        <div class="photo">
+            <img src="images/kyre4.jpeg">
+            <p>Still my favorite moment</p>
+        </div>
+    </div>
 </section>
 
-<!-- POETRY -->
+<!-- 💌 POETRY (SUDAH SESUAI REQUEST) -->
 <section id="poetry" class="section">
     <h2>For You 💌</h2>
     <p>
-    Kamu adalah tenang yang datang tanpa suara,  
-    seperti senja yang perlahan memeluk langit.  
-    Aku tidak pernah tahu bahwa sederhana bisa terasa begitu utuh,  
-    sampai aku melihat dunia dari matamu.
+     Aku merapal namamu perlahan—di sela jeda yang kian memuai,<br>
+    setiap hurufnya jatuh tenang, meredakan riuh yang tak usai.<br>
+    Di dunia yang gemar berlari tanpa arah dan jeda,<br>
+    kau datang sebagai hening—mengajakku pulang pada makna.
+    <br><br>
 
-    Kamu bukan hanya indah…  
-    kamu adalah rumah yang tidak pernah ingin aku tinggalkan.
+    Mengajarkanku, bahwa tak semua harus dikejar hingga lelah,<br>
+    sebagian cukup diterima, dengan ikhlas yang sederhana dan pasrah.<br>
+    Dan hadirmu—ah, serupa hujan pertama selepas kemarau panjang,<br>
+    jatuhnya lirih, namun mampu menghidupkan harap yang hampir hilang.
+    <br><br>
 
-    Di antara ribuan kemungkinan,  
-    aku jatuh… dan selalu jatuh… hanya ke kamu.
+    Ia membasuh debu yang lama menetap di jiwa,<br>
+    menyiram rasa yang nyaris lupa bagaimana cara percaya.<br>
+    Namun jarak—selalu pandai merajut sunyi yang dalam,<br>
+    menjadikan rindu sebagai perjalanan tanpa teman.
+    <br><br>
+
+    Jika rindu punya warna, ia akan bersemayam di matamu,<br>
+    gelap yang teduh, hangat yang tak pernah semu.<br>
+    Pada langkah-langkah yang nyaris runtuh oleh waktu,<br>
+    bayangmu menjelma lentera—menuntunku kembali menuju.
+    <br><br>
+
+    Di sanalah aku belajar, dalam diam yang paling dalam,<br>
+    bahwa mencintai bukan sekadar menggenggam—<br>
+    melainkan merelakan, agar tetap tumbuh tanpa paksaan,<br>
+    dalam kasih yang sehat, tanpa luka yang dipaksakan.
+    <br><br>
+
+    Ia tak meminta temu yang tergesa, atau janji yang memaksa,<br>
+    hanya berharap waktu cukup sabar agar tak berubah menjadi luka.<br>
+    Dan bila suatu hari dunia berpaling, bahkan mengkhianatimu,<br>
+    datanglah—aku akan tetap menjadi tenang yang menunggumu.
+    <br><br>
+
+    Namun, bila langkahku tak mampu berjalan hingga akhir cerita,<br>
+    jika waktuku berhenti sebelum sempat menua bersama,<br>
+    maafkan aku—bukan karena kurangnya cinta,<br>
+    melainkan karena takdir memilih jalan yang berbeda.
+    <br><br>
+
+    Pergilah… dan hiduplah lebih bahagia setelah ini,<br>
+    temukan tawa yang tak sempat kutemani.<br>
+    Tak perlu mengingatku sebagai kehilangan yang menyakitkan,<br>
+    cukup sebagai seseorang yang pernah mencintaimu—dengan seluruh ketulusan yang tak tergantikan.
+    <br><br>
+
+    Izinkan aku mencintaimu dengan cara paling sederhana,<br>
+    mendoakanmu dari jauh, dalam sunyi yang setia.<br>
+    Dan saat segalanya memilih pergi meninggalkan,<br>
+    biarkan cintaku tetap tinggal—<br>
+    meski aku tak lagi di dalamnya,<br>
+    namun selalu hidup… dalam setiap bahagiamu yang berlanjut ke depan.
     </p>
 </section>
 
 <!-- 💡 SECRET -->
 <div id="secret" class="secret">
     <div class="box">
-        <p>Aku selalu milih kamu, bahkan di dunia yang berbeda.</p>
+        <p>You were never just a moment… you became my forever.</p>
         <button onclick="closeSecret()">Close</button>
     </div>
 </div>
+
+<!-- FOOTER -->
+<footer>
+    <p>Made with love 🤍 | Our Story Forever</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
