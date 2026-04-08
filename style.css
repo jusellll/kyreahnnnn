@@ -1,42 +1,88 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg,#ffe4ec,#fce7f3);
     margin:0;
-    text-align:center;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg,#dbeafe,#e0f2fe,#f1f5f9,#e9d5ff);
 }
 
 /* NAV */
 nav {
-    background:#fff;
+    background:white;
     padding:10px;
     position:sticky;
     top:0;
 }
-
 nav button {
     margin:5px;
     padding:8px 15px;
     border:none;
     border-radius:20px;
-    background:#fda4af;
-    color:white;
+    background:#93c5fd;
     cursor:pointer;
 }
 
 /* SECTION */
-.section {
-    display:none;
+.section {display:none; padding:30px;}
+.active {display:block;}
+
+/* HERO */
+.hero {
+    background:rgba(255,255,255,0.6);
     padding:30px;
-}
-.active {
-    display:block;
+    border-radius:20px;
 }
 
-/* IMG */
-img {
-    width:150px;
+/* HOME CARDS */
+.home-cards {
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.card {
+    background:white;
+    padding:15px;
     border-radius:15px;
-    margin:10px;
+}
+
+/* GAME */
+#memoryGame {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    max-width:300px;
+    margin:auto;
+}
+.card-game {
+    height:70px;
+    background:#bfdbfe;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    border-radius:10px;
+}
+
+/* VIDEO */
+.video-grid {
+    display:flex;
+    gap:20px;
+    justify-content:center;
+}
+.video-card video {
+    width:200px;
+    border-radius:10px;
+}
+
+/* GALLERY */
+.gallery-grid {
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.photo img {
+    width:150px;
+    border-radius:10px;
 }
 
 /* SECRET */
@@ -53,4 +99,11 @@ img {
     background:white;
     padding:20px;
     border-radius:20px;
+}
+
+/* FOOTER */
+footer {
+    margin-top:50px;
+    padding:20px;
+    background:white;
 }
