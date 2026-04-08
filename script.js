@@ -1,14 +1,12 @@
-// NAVIGASI
+// NAV
 function showSection(id){
-    document.querySelectorAll(".section").forEach(sec=>{
-        sec.classList.remove("active");
-    });
+    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
 }
 
-// 💡 SECRET (PRESS L)
+// SECRET
 document.addEventListener("keydown",(e)=>{
-    if(e.key.toLowerCase()==="l"){
+    if(e.key==="l"){
         document.getElementById("secret").style.display="flex";
     }
 });
@@ -16,32 +14,36 @@ function closeSecret(){
     document.getElementById("secret").style.display="none";
 }
 
-// 🎮 GAME 1 (FIND HEART)
-let g1 = document.getElementById("game1");
-let index = Math.floor(Math.random()*6);
-for(let i=0;i<6;i++){
-    let b=document.createElement("button");
-    b.innerHTML="?";
-    b.onclick=()=>{
-        b.innerHTML = (i===index)?"❤️":"💔";
+// 🎮 MEMORY GAME (HALUS & RAPI)
+const emojis=["💙","✨","🌙","💌","💙","✨","🌙","💌"];
+let shuffled=emojis.sort(()=>0.5-Math.random());
+
+let first=null;
+const board=document.getElementById("memoryGame");
+
+shuffled.forEach((emoji)=>{
+    let card=document.createElement("div");
+    card.classList.add("card-game");
+
+    card.onclick=()=>{
+        if(card.innerHTML!=="") return;
+
+        card.innerHTML=emoji;
+
+        if(!first){
+            first={card,emoji};
+        } else {
+            if(first.emoji===emoji){
+                document.getElementById("gameText").innerHTML="Just like us… we match.";
+            } else {
+                setTimeout(()=>{
+                    first.card.innerHTML="";
+                    card.innerHTML="";
+                },600);
+            }
+            first=null;
+        }
     };
-    g1.appendChild(b);
-}
 
-// 🎮 GAME 2 (QUIZ)
-document.getElementById("quiz").innerHTML = `
-<p>Siapa yang paling kamu sayang?</p>
-<button onclick="alert('Salah 😝')">Aku</button>
-<button onclick="alert('Benar 💖')">Kamu</button>
-`;
-
-// 🎮 GAME 3 (CLICK LOVE)
-let count=0;
-let clickDiv=document.getElementById("clickGame");
-let btn=document.createElement("button");
-btn.innerHTML="Klik aku ❤️";
-btn.onclick=()=>{
-    count++;
-    btn.innerHTML="Love: "+count;
-};
-clickDiv.appendChild(btn);
+    board.appendChild(card);
+});
