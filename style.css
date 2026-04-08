@@ -1,123 +1,56 @@
 body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg,#ffe4ec,#fce7f3);
     margin:0;
-    font-family:'Poppins',sans-serif;
-    background:#0f172a;
-    color:#f8fafc;
-}
-
-/* INTRO */
-.intro video {
-    width:100%;
-    height:100vh;
-    object-fit:cover;
-}
-
-.intro-text {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
     text-align:center;
 }
 
-/* PARALLAX */
-.parallax {
-    height:100vh;
-    overflow:hidden;
-    position:relative;
+/* NAV */
+nav {
+    background:#fff;
+    padding:10px;
+    position:sticky;
+    top:0;
 }
 
-.layer {
-    position:absolute;
-    width:100%;
-}
-
-.title {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    font-size:3em;
-}
-
-/* POETRY */
-.poetry {
-    max-width:600px;
-    margin:100px auto;
-    line-height:2;
-    text-align:center;
-    opacity:0;
-    transition:1s;
-}
-
-.poetry.show {
-    opacity:1;
-}
-
-.highlight {
-    color:#fda4af;
-}
-
-/* GAME */
-.game-section {
-    text-align:center;
-    padding:50px;
-}
-
-#memoryGame {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    max-width:300px;
-    margin:auto;
-}
-
-.card {
-    height:70px;
-    background:#1e293b;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+nav button {
+    margin:5px;
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    background:#fda4af;
+    color:white;
     cursor:pointer;
 }
 
-/* FINAL */
-.final {
-    height:100vh;
-    display:flex;
-    flex-direction:column;
+/* SECTION */
+.section {
+    display:none;
+    padding:30px;
+}
+.active {
+    display:block;
+}
+
+/* IMG */
+img {
+    width:150px;
+    border-radius:15px;
+    margin:10px;
+}
+
+/* SECRET */
+.secret {
+    display:none;
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
     justify-content:center;
     align-items:center;
 }
-
-/* 💡 SECRET OVERLAY */
-.secret {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
-
-.secret-box {
-    background: rgba(255,255,255,0.05);
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    max-width: 300px;
-}
-
-.secret-box button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    background: #fda4af;
-    border-radius: 10px;
-    cursor: pointer;
+.box {
+    background:white;
+    padding:20px;
+    border-radius:20px;
 }
