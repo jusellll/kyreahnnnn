@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- 🎬 INTRO VIDEO -->
+<section class="video-intro" id="intro">
+    <video autoplay muted loop id="bgVideo">
+        <source src="video.mp4">
+    </video>
+    <div class="overlay">
+        <h1>Our Story</h1>
+        <button onclick="enterSite()">Enter</button>
+    </div>
+</section>
+
+<!-- 🎧 MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3">
+</audio>
+
+<!-- 🌙 MAIN CONTENT -->
+<div id="main">
+
+    <!-- HERO -->
+    <section class="glass hero">
+        <h1>Happy Anniversary 🤍</h1>
+        <p>you are my safest place</p>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="glass">
+        <h2>Since We Met</h2>
+        <div id="time"></div>
+    </section>
+
+    <!-- 🎬 CINEMATIC STORY -->
+    <section class="scene" style="background-image:url('images/scene1.jpg')">
+        <div class="text">
+            <h1>Dulu...</h1>
+            <p>Aku cuma seseorang yang berjalan sendiri.</p>
+        </div>
+    </section>
+
+    <section class="scene" style="background-image:url('images/scene2.jpg')">
+        <div class="text">
+            <h1>Lalu kamu datang</h1>
+            <p>Dan semuanya berubah tanpa aku sadari.</p>
+        </div>
+    </section>
+
+    <section class="scene" style="background-image:url('images/scene3.jpg')">
+        <div class="text">
+            <h1>Kita tertawa</h1>
+            <p>Seolah dunia cuma milik kita berdua.</p>
+        </div>
+    </section>
+
+    <section class="scene" style="background-image:url('images/scene4.jpg')">
+        <div class="text">
+            <h1>Kita pernah terluka</h1>
+            <p>Tapi kita memilih untuk tetap tinggal.</p>
+        </div>
+    </section>
+
+    <!-- 💌 LETTER -->
+    <section class="glass">
+        <h2>For You</h2>
+        <p id="typing"></p>
+    </section>
+
+    <!-- 🎮 MINI GAME -->
+    <section class="glass">
+        <h2>Little Game 💖</h2>
+        <p>Find the heart</p>
+        <div id="game"></div>
+        <p id="result"></p>
+    </section>
+
+    <!-- 💖 FINAL -->
+    <section class="scene final">
+        <div class="text">
+            <h1>Dan sampai hari ini...</h1>
+            <p>Aku masih memilih kamu. Selalu.</p>
+            <button onclick="finalMessage()">Click Me</button>
+            <h2 id="ending"></h2>
+        </div>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
