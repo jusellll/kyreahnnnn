@@ -1,75 +1,47 @@
-// START
-function start(){
-    document.getElementById("intro").style.display="none";
-    document.getElementById("main").style.display="block";
-    document.getElementById("music").play();
-
-    setTimeout(()=>{
-        document.getElementById("voice").play();
-    },3000);
-}
-
-// PARALLAX
-document.addEventListener("scroll", ()=>{
-    document.querySelectorAll(".layer").forEach(layer=>{
-        let speed = layer.getAttribute("data-speed");
-        layer.style.transform = `translateY(${window.scrollY * speed/10}px)`;
+// NAVIGASI
+function showSection(id){
+    document.querySelectorAll(".section").forEach(sec=>{
+        sec.classList.remove("active");
     });
-
-    document.querySelector(".poetry").classList.add("show");
-});
-
-// 🎮 MEMORY GAME
-const emojis = ["❤️","🌙","✨","💌","❤️","🌙","✨","💌"];
-let shuffled = emojis.sort(()=>0.5-Math.random());
-
-let first, second;
-const board = document.getElementById("memoryGame");
-
-shuffled.forEach((emoji)=>{
-    let card = document.createElement("div");
-    card.classList.add("card");
-
-    card.onclick = ()=>{
-        card.innerHTML = emoji;
-
-        if(!first){
-            first = {card, emoji};
-        } else {
-            second = {card, emoji};
-
-            if(first.emoji === second.emoji){
-                document.getElementById("gameText").innerHTML =
-                "Just like us… somehow, we always match.";
-            } else {
-                setTimeout(()=>{
-                    first.card.innerHTML="";
-                    second.card.innerHTML="";
-                },500);
-            }
-
-            first = null;
-            second = null;
-        }
-    };
-
-    board.appendChild(card);
-});
-
-// 💖 ENDING
-function ending(){
-    document.getElementById("finalText").innerHTML =
-    "Kalau ini akhir cerita kita... aku harap ini akan menjadi halaman favorit dari kisah kita yang indah.";
+    document.getElementById(id).classList.add("active");
 }
 
-// 💡 HIDDEN SURPRISE (PRESS "L")
-document.addEventListener("keydown", (e)=>{
-    if(e.key.toLowerCase() === "l"){
-        document.getElementById("secret").style.display = "flex";
+// 💡 SECRET (PRESS L)
+document.addEventListener("keydown",(e)=>{
+    if(e.key.toLowerCase()==="l"){
+        document.getElementById("secret").style.display="flex";
     }
 });
-
-// CLOSE SECRET
 function closeSecret(){
-    document.getElementById("secret").style.display = "none";
+    document.getElementById("secret").style.display="none";
 }
+
+// 🎮 GAME 1 (FIND HEART)
+let g1 = document.getElementById("game1");
+let index = Math.floor(Math.random()*6);
+for(let i=0;i<6;i++){
+    let b=document.createElement("button");
+    b.innerHTML="?";
+    b.onclick=()=>{
+        b.innerHTML = (i===index)?"❤️":"💔";
+    };
+    g1.appendChild(b);
+}
+
+// 🎮 GAME 2 (QUIZ)
+document.getElementById("quiz").innerHTML = `
+<p>Siapa yang paling kamu sayang?</p>
+<button onclick="alert('Salah 😝')">Aku</button>
+<button onclick="alert('Benar 💖')">Kamu</button>
+`;
+
+// 🎮 GAME 3 (CLICK LOVE)
+let count=0;
+let clickDiv=document.getElementById("clickGame");
+let btn=document.createElement("button");
+btn.innerHTML="Klik aku ❤️";
+btn.onclick=()=>{
+    count++;
+    btn.innerHTML="Love: "+count;
+};
+clickDiv.appendChild(btn);
