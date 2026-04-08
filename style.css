@@ -10,6 +10,7 @@ nav {
     padding:10px;
     position:sticky;
     top:0;
+    text-align:center;
 }
 nav button {
     margin:5px;
@@ -21,7 +22,11 @@ nav button {
 }
 
 /* SECTION */
-.section {display:none; padding:30px;}
+.section {
+    display:none;
+    padding:30px 20px;
+    text-align:center;
+}
 .active {display:block;}
 
 /* HERO */
@@ -44,13 +49,13 @@ nav button {
     border-radius:15px;
 }
 
-/* GAME */
+/* 🎮 GAME */
 #memoryGame {
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:10px;
     max-width:300px;
-    margin:auto;
+    margin:20px auto;
 }
 .card-game {
     height:70px;
@@ -62,30 +67,73 @@ nav button {
     border-radius:10px;
 }
 
-/* VIDEO */
+/* 🎬 VIDEO */
+#video h2 {
+    text-align:center;
+    margin-bottom:20px;
+}
+
 .video-grid {
     display:flex;
-    gap:20px;
-    justify-content:center;
+    flex-direction:column; /* ⬅️ bikin ke bawah */
+    align-items:center;
+    gap:25px;
 }
+
+.video-card {
+    text-align:center;
+}
+
 .video-card video {
-    width:200px;
+    width:90%;
+    max-width:300px;
     border-radius:10px;
 }
 
-/* GALLERY */
+/* 📸 GALLERY */
+#gallery h2 {
+    text-align:center;
+}
+
 .gallery-grid {
     display:flex;
-    gap:15px;
-    justify-content:center;
-    flex-wrap:wrap;
+    flex-direction:column; /* ⬅️ ke bawah */
+    align-items:center;
+    gap:20px;
 }
+
+.photo {
+    text-align:center;
+}
+
 .photo img {
-    width:150px;
+    width:90%;
+    max-width:250px;
     border-radius:10px;
 }
 
-/* SECRET */
+/* 🎧 MUSIC */
+#music {
+    text-align:center;
+}
+
+#music iframe {
+    margin-top:20px;
+}
+
+/* 💌 POETRY */
+#poetry h2 {
+    text-align:center;
+    margin-bottom:20px;
+}
+
+#poetry p {
+    line-height:2;
+    max-width:700px;
+    margin:auto;
+}
+
+/* 💡 SECRET */
 .secret {
     display:none;
     position:fixed;
@@ -101,9 +149,53 @@ nav button {
     border-radius:20px;
 }
 
-/* FOOTER */
+/* 🦶 FOOTER */
 footer {
-    margin-top:50px;
-    padding:20px;
+    margin-top:100px; /* ⬅️ lebih turun */
+    padding:40px 20px; /* ⬅️ lebih tinggi */
     background:white;
+    text-align:center;
+}
+
+/* ✨ ANIMASI MASUK */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🎬 HOVER EFFECT */
+.card, .photo img, .video-card video {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.photo img:hover {
+    transform: scale(1.05);
+}
+
+.video-card video:hover {
+    transform: scale(1.03);
+}
+
+/* 🎮 GAME INTERACTION */
+.card-game {
+    transition: 0.3s;
+}
+
+.card-game:active {
+    transform: scale(0.9);
+}
+
+/* 🧭 NAV SMOOTH */
+html {
+    scroll-behavior: smooth;
 }
