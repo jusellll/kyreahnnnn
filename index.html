@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Memory That Breathes</title>
+<title>A Silence Full of Meaning</title>
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display&display=swap" rel="stylesheet">
@@ -11,86 +11,82 @@
 
 <body>
 
-<!-- 🎬 INTRO -->
-<section class="intro" id="intro">
-    <video autoplay muted loop>
-        <source src="video.mp4">
+<!-- NAVBAR -->
+<nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('game')">Game</button>
+    <button onclick="showSection('music')">Music</button>
+    <button onclick="showSection('video')">Video</button>
+    <button onclick="showSection('gallery')">Photos</button>
+    <button onclick="showSection('poetry')">Poetry</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="section active">
+    <h1>Another Month, Quietly Ours</h1>
+    <p>Out of everything in this world, I keep choosing you.</p>
+</section>
+
+<!-- GAME -->
+<section id="game" class="section">
+    <h2>Games 🎮</h2>
+
+    <!-- GAME 1 -->
+    <div id="game1"></div>
+
+    <!-- GAME 2 -->
+    <div id="quiz"></div>
+
+    <!-- GAME 3 -->
+    <div id="clickGame"></div>
+</section>
+
+<!-- MUSIC (SPOTIFY) -->
+<section id="music" class="section">
+    <h2>Our Song 🎧</h2>
+    <iframe style="border-radius:12px"
+    src="https://open.spotify.com/embed/playlist/6CeKJn6nMJhT9M9sFEql3W?utm_source=generator"
+    width="300" height="380" frameborder="0"></iframe>
+</section>
+
+<!-- VIDEO -->
+<section id="video" class="section">
+    <h2>Memories 🎬</h2>
+    <video controls width="300">
+        <source src="kyreahn.mp4">
     </video>
-    <div class="intro-text">
-        <h1>A Story Written in Silence</h1>
-        <button onclick="start()">Enter</button>
-    </div>
 </section>
 
-<!-- AUDIO -->
-<audio id="music" loop>
-    <source src="music.mp3">
-</audio>
-
-<!-- 🌌 PARALLAX -->
-<div id="main">
-
-<section class="parallax">
-    <img src="images/layer1.png" class="layer" data-speed="2">
-    <img src="images/layer2.png" class="layer" data-speed="5">
-
-    <h1 class="title">You, unexpectedly.</h1>
+<!-- GALLERY -->
+<section id="gallery" class="section">
+    <h2>Our Photos 📸</h2>
+    <img src="images/kyre1.jpeg">
+    <img src="images/kyre2.jpeg">
+    <img src="images/kyre3.jpeg">
+    <img src="images/kyre4.jpeg">
 </section>
 
-<!-- 💌 POETRY STORY -->
-<section class="poetry">
-<p>
-Aku tidak mencari siapa pun saat itu... <br>
-tapi semesta seperti diam-diam menulis namamu di jalanku.
-</p>
+<!-- POETRY -->
+<section id="poetry" class="section">
+    <h2>For You 💌</h2>
+    <p>
+    Kamu adalah tenang yang datang tanpa suara,  
+    seperti senja yang perlahan memeluk langit.  
+    Aku tidak pernah tahu bahwa sederhana bisa terasa begitu utuh,  
+    sampai aku melihat dunia dari matamu.
 
-<p>
-Dan sejak hari itu, <br>
-hal-hal sederhana menjadi punya arti.
-</p>
+    Kamu bukan hanya indah…  
+    kamu adalah rumah yang tidak pernah ingin aku tinggalkan.
 
-<p>
-Cara kamu tertawa, <br>
-cara kamu diam... <br>
-semuanya terasa seperti rumah.
-</p>
-
-<p>
-Kita pernah retak, <br>
-bahkan hampir hilang. <br>
-Tapi anehnya... kita tetap kembali.
-</p>
-
-<p class="highlight">
-Mungkin, bukan karena semuanya mudah. <br>
-Tapi karena... aku selalu memilih kamu.
-</p>
+    Di antara ribuan kemungkinan,  
+    aku jatuh… dan selalu jatuh… hanya ke kamu.
+    </p>
 </section>
 
-<!-- 🎮 GAME UPGRADE -->
-<section class="game-section">
-<h2>Do You Remember Us?</h2>
-<div id="memoryGame"></div>
-<p id="gameText"></p>
-</section>
-
-<!-- 💖 FINAL -->
-<section class="final">
-<h1>Stay?</h1>
-<button onclick="ending()">Yes</button>
-<p id="finalText"></p>
-</section>
-
-</div>
-
-    <!-- 💡 HIDDEN SURPRISE -->
+<!-- 💡 SECRET -->
 <div id="secret" class="secret">
-    <div class="secret-box">
-        <h2>Hey...</h2>
-        <p>
-            I love you more than yesterday,  
-            and less than tomorrow.
-        </p>
+    <div class="box">
+        <p>Aku selalu milih kamu, bahkan di dunia yang berbeda.</p>
         <button onclick="closeSecret()">Close</button>
     </div>
 </div>
