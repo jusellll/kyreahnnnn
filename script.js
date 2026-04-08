@@ -1,56 +1,75 @@
-// 🎬 ENTER
-function enterSite(){
+// START
+function start(){
     document.getElementById("intro").style.display="none";
     document.getElementById("main").style.display="block";
     document.getElementById("music").play();
+
+    setTimeout(()=>{
+        document.getElementById("voice").play();
+    },3000);
 }
 
-// ⏳ COUNTDOWN
-const startDate = new Date("2025-09-09");
+// PARALLAX
+document.addEventListener("scroll", ()=>{
+    document.querySelectorAll(".layer").forEach(layer=>{
+        let speed = layer.getAttribute("data-speed");
+        layer.style.transform = `translateY(${window.scrollY * speed/10}px)`;
+    });
 
-setInterval(()=>{
-    const now = new Date();
-    const diff = now - startDate;
-    const days = Math.floor(diff/(1000*60*60*24));
-    document.getElementById("time").innerHTML = days + " days together";
-},1000);
+    document.querySelector(".poetry").classList.add("show");
+});
 
-// 💌 TYPEWRITER
-const text = "Aku nggak butuh dunia yang sempurna... aku cuma butuh kamu di dalamnya.";
-let i=0;
+// 🎮 MEMORY GAME
+const emojis = ["❤️","🌙","✨","💌","❤️","🌙","✨","💌"];
+let shuffled = emojis.sort(()=>0.5-Math.random());
 
-function typing(){
-    if(i<text.length){
-        document.getElementById("typing").innerHTML += text[i];
-        i++;
-        setTimeout(typing,40);
-    }
-}
-typing();
+let first, second;
+const board = document.getElementById("memoryGame");
 
-// 🎮 GAME
-const game = document.getElementById("game");
-const result = document.getElementById("result");
-let heartIndex = Math.floor(Math.random()*12);
-
-for(let i=0;i<12;i++){
+shuffled.forEach((emoji)=>{
     let card = document.createElement("div");
     card.classList.add("card");
 
     card.onclick = ()=>{
-        if(i===heartIndex){
-            card.innerHTML="❤️";
-            result.innerHTML="You found my heart 🥺";
+        card.innerHTML = emoji;
+
+        if(!first){
+            first = {card, emoji};
         } else {
-            card.innerHTML="💔";
+            second = {card, emoji};
+
+            if(first.emoji === second.emoji){
+                document.getElementById("gameText").innerHTML =
+                "Just like us… somehow, we always match.";
+            } else {
+                setTimeout(()=>{
+                    first.card.innerHTML="";
+                    second.card.innerHTML="";
+                },500);
+            }
+
+            first = null;
+            second = null;
         }
     };
 
-    game.appendChild(card);
+    board.appendChild(card);
+});
+
+// 💖 ENDING
+function ending(){
+    document.getElementById("finalText").innerHTML =
+    "Kalau ini akhir cerita kita... aku harap ini akan menjadi halaman favorit dari kisah kita yang indah.";
 }
 
-// 💖 FINAL
-function finalMessage(){
-    document.getElementById("ending").innerHTML =
-    "Kalau waktu bisa diulang... aku tetap akan memilih kamu ❤️";
+// 💡 HIDDEN SURPRISE (PRESS "L")
+document.addEventListener("keydown", (e)=>{
+    if(e.key.toLowerCase() === "l"){
+        document.getElementById("secret").style.display = "flex";
+    }
+});
+
+// CLOSE SECRET
+function closeSecret(){
+    document.getElementById("secret").style.display = "none";
 }
