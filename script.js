@@ -1,49 +1,94 @@
-// NAV
+// =======================
+// 🧭 NAVIGASI + ANIMASI PINDAH
+// =======================
 function showSection(id){
-    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
+    document.querySelectorAll(".section").forEach(sec=>{
+        sec.classList.remove("active");
+    });
+
+    const target = document.getElementById(id);
+    target.classList.add("active");
+
+    // reset animasi biar muncul lagi
+    target.classList.remove("show");
+    setTimeout(()=>{
+        target.classList.add("show");
+    },50);
 }
 
-// SECRET
+// =======================
+// 💡 SECRET (TEKAN "L")
+// =======================
 document.addEventListener("keydown",(e)=>{
-    if(e.key==="l"){
-        document.getElementById("secret").style.display="flex";
+    if(e.key.toLowerCase()==="l"){
+        const secret = document.getElementById("secret");
+        if(secret) secret.style.display="flex";
     }
 });
+
 function closeSecret(){
-    document.getElementById("secret").style.display="none";
+    const secret = document.getElementById("secret");
+    if(secret) secret.style.display="none";
 }
 
-// 🎮 MEMORY GAME (HALUS & RAPI)
-const emojis=["💙","✨","🌙","💌","💙","✨","🌙","💌"];
-let shuffled=emojis.sort(()=>0.5-Math.random());
+// =======================
+// 🎬 SCROLL ANIMATION
+// =======================
+const faders = document.querySelectorAll('.fade-up');
 
-let first=null;
-const board=document.getElementById("memoryGame");
-
-shuffled.forEach((emoji)=>{
-    let card=document.createElement("div");
-    card.classList.add("card-game");
-
-    card.onclick=()=>{
-        if(card.innerHTML!=="") return;
-
-        card.innerHTML=emoji;
-
-        if(!first){
-            first={card,emoji};
-        } else {
-            if(first.emoji===emoji){
-                document.getElementById("gameText").innerHTML="Just like us… we match.";
-            } else {
-                setTimeout(()=>{
-                    first.card.innerHTML="";
-                    card.innerHTML="";
-                },600);
-            }
-            first=null;
+const appearOnScroll = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
         }
-    };
-
-    board.appendChild(card);
+    });
+},{
+    threshold: 0.2
 });
+
+faders.forEach(el=>{
+    appearOnScroll.observe(el);
+});
+
+// =======================
+// 🎮 MEMORY GAME (HALUS)
+// =======================
+const emojis = ["💙","✨","🌙","💌","💙","✨","🌙","💌"];
+let shuffled = [...emojis].sort(()=>0.5 - Math.random());
+
+let first = null;
+let lock = false;
+
+const board = document.getElementById("memoryGame");
+
+if(board){
+    shuffled.forEach((emoji)=>{
+        let card = document.createElement("div");
+        card.classList.add("card-game");
+
+        card.onclick = ()=>{
+            if(lock || card.innerHTML !== "") return;
+
+            card.innerHTML = emoji;
+
+            if(!first){
+                first = {card, emoji};
+            } else {
+                if(first.emoji === emoji){
+                    document.getElementById("gameText").innerHTML =
+                    "Just like us… we always find our way back.";
+                } else {
+                    lock = true;
+                    setTimeout(()=>{
+                        first.card.innerHTML = "";
+                        card.innerHTML = "";
+                        lock = false;
+                    },600);
+                }
+                first = null;
+            }
+        };
+
+        board.appendChild(card);
+    });
+}
